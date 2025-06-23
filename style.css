@@ -1,7 +1,6 @@
 /* Genel Sayfa Ayarları */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fbe9e7;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -10,15 +9,23 @@ body {
     text-align: center;
     overflow: hidden;
     position: relative;
-    transition: background-color 0.3s ease-in-out;
+    background: linear-gradient(135deg, #ff66b2, #ff99cc, #ffccff); /* Romantik gradient */
+    animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+/* Arka plan gradient animasyonu */
+@keyframes gradientAnimation {
+    0% { background: linear-gradient(135deg, #ff66b2, #ff99cc, #ffccff); }
+    50% { background: linear-gradient(135deg, #ffccff, #ff99cc, #ff66b2); }
+    100% { background: linear-gradient(135deg, #ff66b2, #ff99cc, #ffccff); }
 }
 
 /* Container (Ana kutu) */
 .container {
-    background-color: #fff0f6; /* Pembe arka plan */
+    background-color: rgba(255, 255, 255, 0.8); /* Hafif şeffaf beyaz arka plan */
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     width: 80%;
     max-width: 700px;
     z-index: 2;
@@ -40,10 +47,11 @@ body {
 
 /* Elif ismi için animasyon */
 #loveName {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #ff4081;
     margin-bottom: 20px;
     animation: nameAnimation 2s ease-out;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
 @keyframes nameAnimation {
@@ -74,7 +82,7 @@ body {
 .heart {
     width: 40px;
     height: 40px;
-    background-color: #e91e63;
+    background-color: #ff4081;
     clip-path: polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%);
     transform: rotate(-45deg);
     position: absolute;
@@ -114,10 +122,11 @@ body {
 }
 
 .phrase {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #333;
     opacity: 0;
     animation: fadeInOut 5s infinite;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 @keyframes fadeInOut {
@@ -186,22 +195,21 @@ body {
     background-color: #e91e63;
 }
 
-/* Kalp animasyonlarını renkli yapma */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #2c2c2c;
-        color: white;
-    }
-
-    .container {
-        background-color: #333;
-    }
-
-    .heart {
-        background-color: #ff4081;
-    }
-
-    #volume {
-        background-color: #333;
-    }
+/* Spotify başlığını küçült ve sağa yerleştir */
+#spotifyTitle {
+    font-size: 1.2rem;
+    color: #ff4081;
+    text-align: right;
+    margin-bottom: 10px;
 }
+
+/* Ok butonları stil ayarları */
+.nav-button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition
