@@ -13,14 +13,17 @@
 
         <!-- Romantik Cümleler -->
         <section class="romantic-phrases">
-            <div id="phraseDisplay" class="phrase"></div>
+            <div class="controls">
+                <button id="prevBtn" class="nav-button">←</button>
+                <div id="phraseDisplay" class="phrase"></div>
+                <button id="nextBtn" class="nav-button">→</button>
+            </div>
         </section>
 
         <!-- Spotify Track Embed -->
         <section class="spotify">
-            <h2>Özel Spotify Şarkısı</h2>
+            <h2 id="spotifyTitle">Özel Spotify Şarkısı</h2>
             <div class="spotify-container">
-                <!-- Embed the specific track -->
                 <iframe src="https://open.spotify.com/embed/track/3730z7N28rvWW4PpSXR7PY?si=2cff3423e3184f05" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="audio-controls">
