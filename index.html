@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Elif, Senin İçin</h1>
+        <!-- Elif ismi animasyonlu -->
+        <h1 id="loveName">Elif, Senin İçin</h1>
 
         <!-- Romantik Cümleler -->
         <section class="romantic-phrases">
@@ -18,7 +19,9 @@
         <!-- Spotify Playlist -->
         <section class="spotify">
             <h2>Özel Spotify Çalma Listesi</h2>
-            <iframe src="https://open.spotify.com/embed/playlist/YOUR_SPOTIFY_PLAYLIST_ID" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <div class="spotify-container">
+                <iframe src="https://open.spotify.com/embed/playlist/YOUR_SPOTIFY_PLAYLIST_ID" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <div class="audio-controls">
                 <label for="volume">Ses Seviyesi:</label>
                 <input type="range" id="volume" value="50" min="0" max="100" step="1">
