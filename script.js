@@ -2,26 +2,57 @@
 let phrases = [
     "Elif, sen benim hayatımın en güzel parçasısın!",
     "Sonsuza kadar seninle olmak, hayalim.",
-    "Her anı seninle geçirmek, en güzel hediye.",
-    "Gözlerindeki o parıltıyı görmek, beni her zaman büyüler.",
-    "Seninle her şey çok daha güzel, Elif.",
-    "Sana her baktığımda, geleceğimi daha parlak görüyorum.",
-    "Birlikte yaşlanmak, en büyük dileğim.",
-    "Elif, seninle her şey mümkün.",
-    "Sadece seni düşünmek bile kalbimi hızlandırıyor."
+    "Her anı seninle geçirmek istiyorum.",
+    "Senin gülüşün, dünyamı aydınlatıyor.",
+    "Aşkımız her geçen gün daha da büyüyor.",
+    "Seninle her şey daha güzel, daha özel.",
+    "Gözlerinde kaybolmak, en büyük huzurum.",
+    "Her adımda seni hissetmek, en güzel şey.",
+    "Elif, seninle her an bir masal gibi.",
+    "Birlikte her şeyin üstesinden geliriz."
 ];
 
+// İlk cümleyi başlat
+let currentPhraseIndex = 0;
 let phraseDisplay = document.getElementById("phraseDisplay");
-let phraseIndex = 0;
+let prevBtn = document.getElementById("prevBtn");
+let nextBtn = document.getElementById("nextBtn");
 
-// Cümleleri değiştiren fonksiyon
-function displayPhrase() {
-    phraseDisplay.innerHTML = phrases[phraseIndex];
-    phraseIndex = (phraseIndex + 1) % phrases.length;
+// Cümleyi ekrana yerleştir
+function displayPhrase(index) {
+    phraseDisplay.textContent = phrases[index];
+    phraseDisplay.style.opacity = 0; // Başlangıçta görünmez
+    setTimeout(() => {
+        phraseDisplay.style.transition = "opacity 1s ease-in-out";
+        phraseDisplay.style.opacity = 1; // Görünür yap
+    }, 100);
 }
 
-setInterval(displayPhrase, 6000);  // Her 6 saniyede bir cümleyi değiştirir
+// "Önceki" butonuna tıklandığında
+prevBtn.addEventListener("click", () => {
+    currentPhraseIndex = (currentPhraseIndex - 1 + phrases.length) % phrases.length; // Döngüsel
+    displayPhrase(currentPhraseIndex);
+});
 
-// Ses seviyesi kontrolü
-const volumeControl = document.getElementById('volume');
-const backgroundMusic = document.getElementById('
+// "Sonraki" butonuna tıklandığında
+nextBtn.addEventListener("click", () => {
+    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; // Döngüsel
+    displayPhrase(currentPhraseIndex);
+});
+
+// Sayfa yüklendiğinde ilk cümleyi göster
+displayPhrase(currentPhraseIndex);
+
+// Ses kaydırıcısı
+let volumeControl = document.getElementById("volume");
+let backgroundMusic = document.getElementById("backgroundMusic");
+
+// Ses kaydırıcısını ayarladığında sesi değiştir
+volumeControl.addEventListener("input", () => {
+    let volume = volumeControl.value / 100; // Ses seviyesi 0-1 arasında olmalı
+    backgroundMusic.volume = volume;
+});
+
+// Sayfa açıldığında ses seviyesini varsayılan olarak 50 yap
+volumeControl.value = 50;
+backgroundMusic.volume = volumeControl.value / 100;
