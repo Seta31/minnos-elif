@@ -1,29 +1,44 @@
-let phrases = [
-    "Elif, sen benim hayatımın en güzel parçasısın!",
-    "Sonsuza kadar seninle olmak, hayalim.",
-    "Her anı seninle geçirmek, en güzel hediye.",
-    "Gözlerindeki o parıltıyı görmek, beni her zaman büyüler.",
-    "Seninle her şey çok daha güzel, Elif.",
-    "Sana her baktığımda, geleceğimi daha parlak görüyorum.",
-    "Birlikte yaşlanmak, en büyük dileğim.",
-    "Elif, seninle her şey mümkün.",
-    "Sadece seni düşünmek bile kalbimi hızlandırıyor."
-];
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elif'e Özel Aşk Sitesi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Elif, Senin İçin</h1>
 
-let phraseDisplay = document.getElementById("phraseDisplay");
-let phraseIndex = 0;
+        <!-- Romantik Cümleler -->
+        <section class="romantic-phrases">
+            <div id="phraseDisplay" class="phrase"></div>
+        </section>
 
-function displayPhrase() {
-    phraseDisplay.innerHTML = phrases[phraseIndex];
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-}
+        <!-- Spotify Playlist -->
+        <section class="spotify">
+            <h2>Özel Spotify Çalma Listesi</h2>
+            <iframe src="https://open.spotify.com/embed/playlist/YOUR_SPOTIFY_PLAYLIST_ID" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <div class="audio-controls">
+                <label for="volume">Ses Seviyesi:</label>
+                <input type="range" id="volume" value="50" min="0" max="100" step="1">
+            </div>
+        </section>
 
-setInterval(displayPhrase, 6000);  // Her 6 saniyede bir cümleyi değiştirir
+        <!-- Kalp Animasyonu -->
+        <div class="heart-container">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+    </div>
 
-// Ses Seviyesi Kontrolü
-const volumeControl = document.getElementById('volume');
-const backgroundMusic = document.getElementById('backgroundMusic');
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="your-love-song.mp3" type="audio/mp3">
+        Tarayıcınız audio etiketini desteklemiyor.
+    </audio>
 
-volumeControl.addEventListener('input', function() {
-    backgroundMusic.volume = volumeControl.value / 100;
-});
+    <script src="script.js"></script>
+</body>
+</html>
